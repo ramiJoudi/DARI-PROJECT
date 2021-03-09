@@ -1,14 +1,16 @@
 package VORTEX.DARIPROJECT.ENTITY;
-
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.annotation.Generated;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,10 @@ public class Contract implements Serializable{
 	private int Contractnum;
 	private Float effective_price;
 	private Date effective_Date;
+	
+	 @OneToMany
+	 private Set<real_estate> real_estates;
+	
 	public Contract(int contractnum, Float effective_price, Date effective_Date) {
 		super();
 		Contractnum = contractnum;
@@ -30,6 +36,8 @@ public class Contract implements Serializable{
 	public Contract() {
 		super();
 	}
+	
+	
 	public int getContractnum() {
 		return Contractnum;
 	}

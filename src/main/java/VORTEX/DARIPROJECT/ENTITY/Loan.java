@@ -3,11 +3,22 @@ package VORTEX.DARIPROJECT.ENTITY;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GeneratorType;
 
 @Entity
 @Table(name="LoanTab")
 public class Loan implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7191350880347557053L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idCredit;
 	private float Price;
 	private float Monthly_paymenet;
@@ -43,13 +54,13 @@ public class Loan implements Serializable {
 	public void setBank(bank bank) {
 		this.bank = bank;
 	}
-	public Loan(int idCredit, float price, float monthly_paymenet, int loan_duration, entity.bank bank) {
+	public Loan(int idCredit, float price, float monthly_paymenet, int loan_duration,bank bank) {
 		super();
 		this.idCredit = idCredit;
-		Price = price;
+		this.Price = price;
 		Monthly_paymenet = monthly_paymenet;
 		this.loan_duration = loan_duration;
-		this.bank = bank;
+		 
 	}
 	public Loan() {
 		super();

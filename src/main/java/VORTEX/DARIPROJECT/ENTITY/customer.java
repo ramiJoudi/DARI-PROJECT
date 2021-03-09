@@ -1,49 +1,66 @@
 package VORTEX.DARIPROJECT.ENTITY;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-@SuppressWarnings("serial")
+ 
 @Entity
-@Table( name= "D_customer")
-
-public class customer implements Serializable{
+ public class customer extends User implements Serializable{
+	private static final long serialVersionUID = -5369734855993305723L;
 	
-	@Id
-	@GeneratedValue (strategy= GenerationType.AUTO)
-	@Column(name="Customer_Id")
 	private int customer_number; 
-
-	private String name;
-	
-	private int mobile;
 	
 	private int trial;
 	
+	
+	 
+ 
+	public customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public customer(String username, int mobile, String login, String pwd,int customer_number,int trial) {
+		super(username, mobile, login, pwd);
+		this.customer_number=customer_number;
+		this.trial=trial;
+	}
+
+	@OneToMany(mappedBy = "Client")
+	private Set<Claim> claimsC;
+	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "customerV")
+	private Set<Visit> visitsC;
+ 
 	@OneToMany(cascade = CascadeType.ALL)
-	private Set<Claim> Claims;
+	private Set<Contract> Contracts;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	private Set<Chat> ChatsC;
 	
 	@OneToOne
 	private subscription sub;
 	
-	@OneToOne
-	private Loan loan;
-
-	@OneToOne
-	private Contract contract;
-
 	@OneToMany
-	private Set<Visit> Visits;
+	private Set<Loan> loan_List;
+	
+	@ManyToOne
+	private Ads ads;
 	
 	public int getCustomer_number() {
 		return customer_number;
@@ -53,21 +70,8 @@ public class customer implements Serializable{
 		this.customer_number = customer_number;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getMobile() {
-		return mobile;
-	}
-
-	public void setMobile(int mobile) {
-		this.mobile = mobile;
-	}
+	 
+ 
 
 	public int getTrial() {
 		return trial;
@@ -77,15 +81,5 @@ public class customer implements Serializable{
 		this.trial = trial;
 	}
 
-	public customer() {
-		super();
-	}
-
-	public customer(int customer_number, String name, int mobile, int trial) {
-		super();
-		this.customer_number = customer_number;
-		this.name = name;
-		this.mobile = mobile;
-		this.trial = trial;
-	}
+	 
 }

@@ -1,24 +1,29 @@
 package VORTEX.DARIPROJECT.ENTITY;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
-@Table( name= "D_subscription")
+@Table( name= "t_subscription")
 public class subscription implements Serializable{
 	
 	@Id
 	@GeneratedValue (strategy= GenerationType.AUTO)
-	
 	private int idSub; 
 	
 	private String offer;
+	
+	@OneToOne(mappedBy = "sub")
+	private customer customer;
 
 	public subscription(int idSub, String offer) {
 		super();

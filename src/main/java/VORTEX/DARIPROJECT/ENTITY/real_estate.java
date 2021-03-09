@@ -1,14 +1,17 @@
 package VORTEX.DARIPROJECT.ENTITY;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -28,11 +31,15 @@ public class real_estate implements Serializable {
 	@Column(name="buy_rent")//true for buy false for rent
 	private boolean buy_rent;
 	
-	@OneToOne
-	private Contract contract;
+ 
+	@OneToMany(mappedBy = "real_estate")
+	private List<Claim> Claims;
+	
+	@OneToMany(mappedBy = "real_estateV")
+	private Set<Visit> visits;
 
-	@OneToMany
-	private Set<Visit> Visits;
+	@ManyToOne
+	private owner owner;
 	
 	public real_estate() {
 		super();
