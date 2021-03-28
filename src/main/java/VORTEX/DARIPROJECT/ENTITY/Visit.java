@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="VisitTab")
 public class Visit implements Serializable {
 	@Id
 	@GeneratedValue (strategy= GenerationType.AUTO)

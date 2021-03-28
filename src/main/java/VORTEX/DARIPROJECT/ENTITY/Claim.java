@@ -25,7 +25,7 @@ public class Claim implements Serializable{
 	private real_estate real_estate;
 	
 	@ManyToOne  
-	@JoinColumn(name = "idClient", referencedColumnName = "customer_number", insertable=false, updatable=false)
+	@JoinColumn(name = "idClient", referencedColumnName = "id", insertable=false, updatable=false)
 	private customer Client;
 	
 	public Claim(int idClaim, String subject, String description) {

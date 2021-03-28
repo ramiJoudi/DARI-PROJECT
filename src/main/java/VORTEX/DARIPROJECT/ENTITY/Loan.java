@@ -3,6 +3,8 @@ package VORTEX.DARIPROJECT.ENTITY;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,7 +13,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GeneratorType;
 
 @Entity
-@Table(name="LoanTab")
 public class Loan implements Serializable {
 	/**
 	 * 
@@ -23,6 +24,7 @@ public class Loan implements Serializable {
 	private float Price;
 	private float Monthly_paymenet;
 	private int loan_duration;
+	@Enumerated(EnumType.STRING)
 	private bank bank;
 	public int getIdCredit() {
 		return idCredit;

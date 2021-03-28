@@ -34,4 +34,87 @@ public class Ads implements Serializable{
 	
 	@OneToOne
 	private real_estate real_estate;
+
+	public int getAdID() {
+		return AdID;
+	}
+
+	public void setAdID(int adID) {
+		AdID = adID;
+	}
+
+	public String getAdname() {
+		return Adname;
+	}
+
+	public void setAdname(String adname) {
+		Adname = adname;
+	}
+
+	public String getAdLocation() {
+		return AdLocation;
+	}
+
+	public void setAdLocation(String adLocation) {
+		AdLocation = adLocation;
+	}
+
+	public String getAdDescription() {
+		return AdDescription;
+	}
+
+	public void setAdDescription(String adDescription) {
+		AdDescription = adDescription;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public Date getAdDate() {
+		return AdDate;
+	}
+
+	public void setAdDate(Date adDate) {
+		AdDate = adDate;
+	}
+
+	public Float getArea() {
+		return Area;
+	}
+
+	public void setArea(Float area) {
+		Area = area;
+	}
+
+	public int getRoomNo() {
+		return RoomNo;
+	}
+
+	public void setRoomNo(int roomNo) {
+		RoomNo = roomNo;
+	}
+
+	public property_type getType() {
+		return Type;
+	}
+
+	public void setType(property_type type) {
+		Type = type;
+	}
+
+	public Boolean getParkingSpace() {
+		return parkingSpace;
+	}
+
+	public void setParkingSpace(Boolean parkingSpace) {
+		this.parkingSpace = parkingSpace;
+	}
+	
+	
+	
 }

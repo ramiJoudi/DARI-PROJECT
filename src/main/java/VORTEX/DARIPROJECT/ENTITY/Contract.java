@@ -14,9 +14,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ContractTable")
+@Table(name="contrat")
 public class Contract implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue (strategy= GenerationType.AUTO)
 	@Column(name="Contract-number")

@@ -14,7 +14,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.ManyToAny;
 @SuppressWarnings("serial")
 @Entity
-@Table(name="T_Chat")
 public class Chat implements Serializable {
 	@Id
 	@GeneratedValue (strategy= GenerationType.AUTO)

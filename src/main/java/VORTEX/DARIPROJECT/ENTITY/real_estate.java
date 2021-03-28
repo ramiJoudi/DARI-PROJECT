@@ -17,7 +17,6 @@ import javax.persistence.OneToOne;
 
 @SuppressWarnings("serial")
 @Entity
-@Table( name= "D_real_estate")
 public class real_estate implements Serializable {
 	
 	@Id

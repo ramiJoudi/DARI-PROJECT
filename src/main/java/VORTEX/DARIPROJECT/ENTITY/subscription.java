@@ -13,7 +13,6 @@ import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
-@Table( name= "t_subscription")
 public class subscription implements Serializable{
 	
 	@Id
