@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+  <head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="sockjs-0.3.4.min.js"></script>
+    <script src="stomp.min.js"></script>
+  </head>
+
+  <body>
+    <div id="greet"></div>
+    <p th:inline="text">
+      You are logged as: <b>notif</b>
+      (<a href="/logout">logout</a>)
+    </p>
+    <p>
+      Click the button below to perform an action.
+      <br />
+      <strong>UserA</strong> will be notified via web socket.
+    </p>
+    <input id="do-some-action" type="button" value="Click me" />
+
+    <!-- Javascript functions -->
+        
+    <script>
+	function initialize() {
+		const eventSource = new EventSource('http://localhost:8091/api2/notification');
+		eventSource.onmessage = e => {
+			const msg = e.data;
+			document.getElementById("greet").innerHTML = msg;
+		};
+		eventSource.onopen = e => console.log('open');
+		eventSource.onerror = e => {
+			if (e.readyState == EventSource.CLOSED) {
+				console.log('close');
+			}
+			else {
+				console.log(e);
+			}
+		};
+		eventSource.addEventListener('second', function(e) {
+			console.log('second', e.data);
+		}, false);
+	}
+	window.onload = initialize;
+</script>
+    <script>
+
+      /**
+       * Send an action to the server.
+       */
+      function sendAction(event) {
+        event.preventDefault();
+        $.ajax({
+          url: "/api/some-action",
+          type: "POST"
+        });
+        return;
+      } // function sendAction
+      
+      /**
+       * Init operations.
+       */
+      $(document).ready(function() {
+        
+        // Bind the on-click event for the button element.
+        $("#do-some-action").on("click", sendAction);
+        
+      });
+
+    </script>
+
+  	<br />
+    <hr />
+    Proudly handcrafted by
+    <a href='http://netgloo.com/en'>hamza</a>
+
+  </body>
+
+</html>
