@@ -2,6 +2,8 @@ package VORTEX.DARIPROJECT.controller;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -44,6 +46,10 @@ public class stateController {
 	public String deleteRealstate(@PathVariable int id) {
 		return service.deleteRealstate(id);
 	}
+//	@GetMapping("/allstates")
+//	public List <real_estate> retrieveAll() {
+//		return service.retreiveallRealEstates();
+//	}
 	
 
 }

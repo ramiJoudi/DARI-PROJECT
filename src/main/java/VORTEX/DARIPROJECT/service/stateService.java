@@ -1,5 +1,7 @@
 package VORTEX.DARIPROJECT.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import VORTEX.DARIPROJECT.ENTITY.real_estate;
@@ -29,5 +31,7 @@ public class stateService {
 		existingRealestate.setBuy_rent(Real_estate.isBuy_rent());
 		return rep.save(Real_estate);
 	}
+//	public List<real_estate> retreiveallRealEstates(int id){
+//		return rep.findAll(id).orElse(null);}
 
 }
