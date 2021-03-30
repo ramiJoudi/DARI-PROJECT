@@ -82,6 +82,6 @@ public class real_estate implements Serializable {
 
 	public void setBuy_rent(boolean buy_rent) {
 		this.buy_rent = buy_rent;
-	}
-	
+	}                
+	//commit test
 }
