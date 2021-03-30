@@ -3,6 +3,7 @@ package VORTEX.DARIPROJECT.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import VORTEX.DARIPROJECT.ENTITY.real_estate;
+import VORTEX.DARIPROJECT.ENTITY.subscription;
 import VORTEX.DARIPROJECT.Repository.stateRepository;
 
 @Service
@@ -14,9 +15,8 @@ public class stateService {
 	}
 	
 	public real_estate getRealstateById(int id) {
-		return rep.findById(id).get();
+		return rep.findById(id).orElse(null);
 	}
-	
 	public String deleteRealstate(int id) {
 		rep.deleteById(id);
 		return "Realstate removed!!"+id;

@@ -9,10 +9,13 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -31,7 +34,15 @@ public class GeneratePdfReport {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 
         try {
+            PdfWriter.getInstance(document, out);
+        	document.open();
 
+        	com.itextpdf.text.Font font = FontFactory.getFont(FontFactory.COURIER, 14 , BaseColor.BLACK);
+			Paragraph para = new Paragraph("Contract", font);
+			para.setAlignment(Element.ALIGN_CENTER);
+			document.add(para);
+			document.add(Chunk.NEWLINE);
+			
             PdfPTable table = new PdfPTable(3);
             table.setWidthPercentage(60);
             table.setWidths(new int[]{1, 3, 3});
@@ -73,8 +84,7 @@ public class GeneratePdfReport {
                 table.addCell(cell);
             }
 
-            PdfWriter.getInstance(document, out);
-            document.open();
+            
             document.add(table);
 
             document.close();
