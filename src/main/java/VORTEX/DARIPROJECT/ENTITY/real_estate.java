@@ -14,12 +14,29 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 //import javax.persistence.OneToOne;
+import javax.persistence.OneToOne;
 
 @SuppressWarnings("serial")
 @Entity
 @Table( name= "D_real_estate")
 public class real_estate implements Serializable {
 	
+	public real_estate(int status, String location, float purchasing_price, boolean buy_rent, List<Claim> claims,
+			Set<Visit> visits, Set<Deposit_of_guarantees> dG, Ads ads, VORTEX.DARIPROJECT.ENTITY.owner owner) {
+		super();
+		this.status = status;
+		this.location = location;
+		this.purchasing_price = purchasing_price;
+		this.buy_rent = buy_rent;
+		//Claims = claims;
+		this.visits = visits;
+		DG = dG;
+		this.ads = ads;
+		this.owner = owner;
+	}
+
+
+
 	@Id
 	@GeneratedValue (strategy= GenerationType.AUTO)
 	@Column(name="status")
@@ -32,10 +49,14 @@ public class real_estate implements Serializable {
 	private boolean buy_rent;
 	
  
-	@OneToMany(mappedBy = "real_estate")
-	private List<Claim> Claims;
-		@OneToMany(mappedBy = "real_estateV")
+//	@OneToMany(mappedBy = "real_estate")
+	//private List<Claim> Claims;
+	@OneToMany(mappedBy = "real_estateV")
 	private Set<Visit> visits; 
+	@OneToMany(mappedBy = "real_estate")
+	private Set<Deposit_of_guarantees> DG;
+	@OneToOne
+	private Ads ads;
 
 	@ManyToOne
 	private owner owner;
@@ -44,13 +65,7 @@ public class real_estate implements Serializable {
 		super();
 	}
 
-	public real_estate(int status, String location, float purchasing_price, boolean buy_rent) {
-		super();
-		this.status = status;
-		this.location = location;
-		this.purchasing_price = purchasing_price;
-		this.buy_rent = buy_rent;
-	}
+
 
 	public int getStatus() {
 		return status;
@@ -84,4 +99,60 @@ public class real_estate implements Serializable {
 		this.buy_rent = buy_rent;
 	}                
 	//commit test
+
+	public Set<Deposit_of_guarantees> getDG() {
+		return DG;
+	}
+
+	public void setDG(Set<Deposit_of_guarantees> dG) {
+		DG = dG;
+	}
+
+
+
+/*	public List<Claim> getClaims() {
+		return Claims;
+	}
+
+
+
+	public void setClaims(List<Claim> claims) {
+		Claims = claims;
+	}*/
+
+
+
+	public Set<Visit> getVisits() {
+		return visits;
+	}
+
+
+
+	public void setVisits(Set<Visit> visits) {
+		this.visits = visits;
+	}
+
+
+
+	public Ads getAds() {
+		return ads;
+	}
+
+
+
+	public void setAds(Ads ads) {
+		this.ads = ads;
+	}
+
+
+
+	public owner getOwner() {
+		return owner;
+	}
+
+
+
+	public void setOwner(owner owner) {
+		this.owner = owner;
+	}
 }

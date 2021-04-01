@@ -29,16 +29,16 @@ import javax.persistence.Table;
 	 
 		public owner(String username, int mobile, String login, String pwd, int number_o, String name,
 				int phone_number) {
-			super(username, mobile, login, pwd);
+			//super(username, mobile, login, pwd);
 			this.number_o = number_o;
 			this.name = name;
 			this.phone_number = phone_number;
 		}
 		
 
-		public owner(String username, int mobile, String login, String pwd) {
+		/*public owner(String username, int mobile, String login, String pwd) {
 			super(username, mobile, login, pwd);
-		}
+		}*/
 
 
 		public int getNumber_o() {

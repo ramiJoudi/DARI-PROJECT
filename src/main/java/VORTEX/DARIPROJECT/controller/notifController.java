@@ -43,7 +43,7 @@ public class notifController {
 	    
 	    
 	  
-		  notificationService.notify(new Notification("hello"),"UserA");
+		//  notificationService.notify(new Notification("hello"),"UserA");
 	    
 	    
 	    return new ResponseEntity<>(HttpStatus.OK);

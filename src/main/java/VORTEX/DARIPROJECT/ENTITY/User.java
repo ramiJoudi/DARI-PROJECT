@@ -1,39 +1,47 @@
 package VORTEX.DARIPROJECT.ENTITY;
 
 import java.io.Serializable;
+import java.util.Set;
 
-import javax.persistence.DiscriminatorColumn;
+import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
+
+import javax.persistence.OneToMany;
+
  
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 	public class User implements Serializable {
-		private static final long serialVersionUID = -5369734855993305723L;
-	@Id
-	private String username;
-	private int mobile;
-	private String login;
-	private String pwd;
-	 
- 
-	public User() {
-		super();
-	}
-	public User(String username, int mobile, String login, String pwd) {
+		public User(String username, int mobile, String login, String pwd,
+			Set<VORTEX.DARIPROJECT.ENTITY.WishList> wishList) {
 		super();
 		this.username = username;
 		this.mobile = mobile;
 		this.login = login;
 		this.pwd = pwd;
+		WishList = wishList;
 	}
+		private static final long serialVersionUID = 1L;
+	@Id
+	private String username;
+	private int mobile;
+	private String login;
+	private String pwd;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="user")
+	private Set<WishList> WishList;
+	 
+ 
+	public User() {
+		super();
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -57,6 +65,16 @@ import javax.persistence.Table;
 	}
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
+	}
+	public Set<WishList> getWishList() {
+		return WishList;
+	}
+	public void setWishList(Set<WishList> wishList) {
+		WishList = wishList;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	
 	

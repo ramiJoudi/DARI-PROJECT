@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -16,6 +15,23 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ADS")
 public class Ads implements Serializable{
+	public Ads(int adID, String adname, String adLocation, String adDescription, int price, Date adDate, Float area,
+			int roomNo, property_type type, Boolean parkingSpace, Set<customer> customers, real_estate rS) {
+		super();
+		AdID = adID;
+		Adname = adname;
+		AdLocation = adLocation;
+		AdDescription = adDescription;
+		this.price = price;
+		AdDate = adDate;
+		Area = area;
+		RoomNo = roomNo;
+		Type = type;
+		this.parkingSpace = parkingSpace;
+		this.customers = customers;
+		RS = rS;
+	}
+
 	@Id
 	@GeneratedValue (strategy= GenerationType.AUTO)
 	private int AdID;
@@ -32,8 +48,8 @@ public class Ads implements Serializable{
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "ads")
 	private Set<customer> customers;
 	
-	@OneToOne
-	private real_estate real_estate;
+	@OneToOne(mappedBy="ads")
+	private real_estate RS; // RS : real state 
 
 	public int getAdID() {
 		return AdID;
@@ -123,34 +139,21 @@ public class Ads implements Serializable{
 		this.customers = customers;
 	}
 
-	public real_estate getReal_estate() {
-		return real_estate;
-	}
 
-	public void setReal_estate(real_estate real_estate) {
-		this.real_estate = real_estate;
-	}
 
 	public Ads() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Ads(String adname, String adLocation, String adDescription, int price, Date adDate, Float area, int roomNo,
-			property_type type, Boolean parkingSpace, Set<customer> customers,
-			VORTEX.DARIPROJECT.ENTITY.real_estate real_estate) {
-		super();
-		Adname = adname;
-		AdLocation = adLocation;
-		AdDescription = adDescription;
-		this.price = price;
-		AdDate = adDate;
-		Area = area;
-		RoomNo = roomNo;
-		Type = type;
-		this.parkingSpace = parkingSpace;
-		this.customers = customers;
-		this.real_estate = real_estate;
+	
+
+	public real_estate getRS() {
+		return RS;
+	}
+
+	public void setRS(real_estate rS) {
+		RS = rS;
 	}
 	
 }

@@ -23,12 +23,12 @@ public class Operator extends User implements Serializable {
 	@ManyToMany(cascade = CascadeType.ALL)
 	private Set<Chat> chats;
 
-	public Operator(String username, int mobile, String login, String pwd) {
+	/*public Operator(String username, int mobile, String login, String pwd) {
 		super(username, mobile, login, pwd);
 	}
-
+*/
 	public Operator(String username, int mobile, String login, String pwd, int messageId, String messaage) {
-		super(username, mobile, login, pwd);
+		//super(username, mobile, login, pwd);
 		this.messageId = messageId;
 		this.messaage = messaage;
 	}

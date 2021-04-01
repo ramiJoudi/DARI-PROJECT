@@ -28,10 +28,10 @@ public class admin extends User implements Serializable{
 
 	
 	 
-	public admin(String username, int mobile, String login, String pwd, int id) {
+/*	public admin(String username, int mobile, String login, String pwd, int id) {
 		super(username, mobile, login, pwd);
 		this.id = id;
-	}
+	}*/
 
 
 
