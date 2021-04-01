@@ -10,7 +10,7 @@ import VORTEX.DARIPROJECT.Repository.DepositRepo;
 
 @Service
 public class DepositService {
-
+ 
 	@Autowired
     public DepositRepo dg;
 	

@@ -19,7 +19,7 @@ import VORTEX.DARIPROJECT.service.DepositService;
 //@CrossOrigin("*")
 public class DepositController {
 	
-	
+
 	@Autowired
     private DepositService service;
 	
