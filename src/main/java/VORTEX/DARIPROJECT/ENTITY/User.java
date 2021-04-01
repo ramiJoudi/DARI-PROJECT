@@ -17,8 +17,17 @@ import javax.persistence.OneToMany;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
 	public class User implements Serializable {
-		public User(String username, int mobile, String login, String pwd,
+	
+		private static final long serialVersionUID = 1L;
+	@Id
+	private String username;
+	private int mobile;
+	private String login;
+	private String pwd;
+	
+	public User(String username, int mobile, String login, String pwd,
 			Set<VORTEX.DARIPROJECT.ENTITY.WishList> wishList) {
 		super();
 		this.username = username;
@@ -27,12 +36,6 @@ import javax.persistence.OneToMany;
 		this.pwd = pwd;
 		WishList = wishList;
 	}
-		private static final long serialVersionUID = 1L;
-	@Id
-	private String username;
-	private int mobile;
-	private String login;
-	private String pwd;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="user")
 	private Set<WishList> WishList;

@@ -15,6 +15,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "ADS")
 public class Ads implements Serializable{
+	
+
+	@Id
+	@GeneratedValue (strategy= GenerationType.IDENTITY)
+	private int AdID;
+	private String Adname;
+	private String AdLocation ;
+	private String AdDescription;
+	private int price;
+	private Date AdDate;
+	private Float Area;
+	private int RoomNo;
+	private property_type Type;
+	private Boolean parkingSpace;
+	
 	public Ads(int adID, String adname, String adLocation, String adDescription, int price, Date adDate, Float area,
 			int roomNo, property_type type, Boolean parkingSpace, Set<customer> customers, real_estate rS) {
 		super();
@@ -31,19 +46,6 @@ public class Ads implements Serializable{
 		this.customers = customers;
 		RS = rS;
 	}
-
-	@Id
-	@GeneratedValue (strategy= GenerationType.AUTO)
-	private int AdID;
-	private String Adname;
-	private String AdLocation ;
-	private String AdDescription;
-	private int price;
-	private Date AdDate;
-	private Float Area;
-	private int RoomNo;
-	private property_type Type;
-	private Boolean parkingSpace;
 	
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "ads")
 	private Set<customer> customers;

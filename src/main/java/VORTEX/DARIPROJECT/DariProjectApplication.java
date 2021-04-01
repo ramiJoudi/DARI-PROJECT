@@ -19,11 +19,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 	"VORTEX.DARIPROJECT.Repository"
 })
 public class DariProjectApplication {
-	@Bean(name="entityManagerFactory")
+/*@Bean(name="entityManagerFactory")
 	public LocalSessionFactoryBean sessionFactory() {
 	LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 	return sessionFactory;
-	}
+	}*/
 
 	public static void main(String[] args) {
 		SpringApplication.run(DariProjectApplication.class, args);

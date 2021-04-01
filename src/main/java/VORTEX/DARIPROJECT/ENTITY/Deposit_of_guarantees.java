@@ -7,22 +7,24 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name="DepositG")
-public class Deposit_of_guarantees extends real_estate implements Serializable {
+public class Deposit_of_guarantees implements Serializable {
 	
-	public Deposit_of_guarantees(int iD, String jC, String payslips, String eL) {
+
+	
+
+	public Deposit_of_guarantees() {
 		super();
-		ID = iD;
-		JC = jC;
-		Payslips = payslips;
-		EL = eL;
+		// TODO Auto-generated constructor stub
 	}
+
 	@Id
-	@GeneratedValue (strategy= GenerationType.AUTO)
+	@GeneratedValue (strategy= GenerationType.IDENTITY)
 	@Column(name="ID")
 	private int ID; 
 	@Column(name="JC") //jc : justificaion de paiment , imgurl
@@ -31,6 +33,16 @@ public class Deposit_of_guarantees extends real_estate implements Serializable {
 	private String Payslips;
 	@Column(name="EL") //el : engagement letter , imgurl
 	private String EL; 
+	@OneToOne
+	private real_estate Real_estate;
+	public Deposit_of_guarantees(int iD, String jC, String payslips, String eL, real_estate real_estate) {
+		super();
+		ID = iD;
+		JC = jC;
+		Payslips = payslips;
+		EL = eL;
+		Real_estate = real_estate;
+	}
 	
 	
 	
@@ -57,6 +69,14 @@ public class Deposit_of_guarantees extends real_estate implements Serializable {
 	}
 	public void setEL(String eL) {
 		EL = eL;
+	}
+
+	public real_estate getReal_estate() {
+		return Real_estate;
+	}
+
+	public void setReal_estate(real_estate real_estate) {
+		Real_estate = real_estate;
 	}
 
 }

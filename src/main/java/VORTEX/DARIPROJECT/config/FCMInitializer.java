@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import javax.annotation.PostConstruct;
 
-import org.springframework.core.io.ClassPathResource;
+
 
 import com.google.api.client.util.Value;
 import com.google.auth.oauth2.GoogleCredentials;

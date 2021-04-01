@@ -10,10 +10,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
- 
 @Entity
  public class customer extends User implements Serializable{
 
+	
+
+
+
+	private static final long serialVersionUID = -5369734855993305723L;
+	
+	private int customer_number; 
+	
+	private int trial;
+	
+	
 	public customer(String username, int mobile, String login, String pwd,
 			Set<VORTEX.DARIPROJECT.ENTITY.WishList> wishList, int customer_number, int trial, Set<Claim> claimsC,
 			Set<Visit> visitsC, Set<Contract> contracts, Set<Deposit_of_guarantees> deposit_of_guarantes,
@@ -30,17 +40,6 @@ import javax.persistence.OneToOne;
 		this.loan_List = loan_List;
 		this.ads = ads;
 	}
-
-
-
-	private static final long serialVersionUID = 1L;
-	
-	private int customer_number; 
-	
-	private int trial;
-	
-	
-	 
  
 	public customer() {
 		super();

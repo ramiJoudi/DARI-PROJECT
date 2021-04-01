@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "ContractTable")
-public class Contract implements Serializable{
+public class Contract  implements Serializable{
 	
 	@Id
 	@GeneratedValue (strategy= GenerationType.AUTO)

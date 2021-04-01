@@ -18,7 +18,7 @@ import VORTEX.DARIPROJECT.service.IAnnonceService;
 @RestController
 public class AnnonceRest {
 
-    @Autowired
+   @Autowired
     IAnnonceService annonceService ;
 
     //http://localhost:8081/SpringMVC/servlet/AllAnnonce

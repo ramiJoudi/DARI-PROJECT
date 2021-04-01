@@ -18,7 +18,7 @@ public class AnnoceService implements IAnnonceService {
     AnnoceRepo annonceRepo ;
     private static final Logger l = LogManager.getLogger(AnnoceService.class);
 
-    @Override
+   @Override
     public List<Ads> retrieveAllAnnonce() {
 
         List<Ads> annonces = (List<Ads>) annonceRepo.findAll();
