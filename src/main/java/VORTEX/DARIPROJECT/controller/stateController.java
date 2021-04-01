@@ -4,7 +4,10 @@ package VORTEX.DARIPROJECT.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import VORTEX.DARIPROJECT.ENTITY.real_estate;
+import VORTEX.DARIPROJECT.service.Service;
+import VORTEX.DARIPROJECT.service.SmsRequest;
 import VORTEX.DARIPROJECT.service.stateService;
 
 @RestController
@@ -30,6 +35,7 @@ public class stateController {
 	@PostMapping("/addstate")
 	public real_estate addstate(@RequestBody real_estate state) {
 		return service.save(state);
+		
 	}
 	
 	@GetMapping("/state/{id}")
@@ -46,10 +52,13 @@ public class stateController {
 	public String deleteRealstate(@PathVariable int id) {
 		return service.deleteRealstate(id);
 	}
-//	@GetMapping("/allstates")
-//	public List <real_estate> retrieveAll() {
-//		return service.retreiveallRealEstates();
-//	}
+	@GetMapping("/search/{location}")
+	   public ResponseEntity<?>  searchstate(@PathVariable("location") String location)
+	   {
+	
+	      	return ResponseEntity.ok("done"+service.searchstate( location)); 
+
+	   }
 	
 
 }

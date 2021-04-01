@@ -35,6 +35,8 @@ public class Deposit_of_guarantees implements Serializable {
 	private String EL; 
 	@OneToOne
 	private real_estate Real_estate;
+	
+	
 	public Deposit_of_guarantees(int iD, String jC, String payslips, String eL, real_estate real_estate) {
 		super();
 		ID = iD;

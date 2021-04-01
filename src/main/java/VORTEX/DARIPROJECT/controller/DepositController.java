@@ -42,9 +42,6 @@ public class DepositController {
 	public String deletedeposit(@PathVariable int id) {
 		return service.deletedeposit(id);
 	}
-//	@GetMapping("/allstates")
-//	public List <real_estate> retrieveAll() {
-//		return service.retreiveallRealEstates();
-//	}
+
 
 }

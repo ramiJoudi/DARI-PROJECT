@@ -23,8 +23,6 @@ import javax.persistence.OneToOne;
 
 public class real_estate implements Serializable {
 	
-	
-
 
 
 	@Id
@@ -56,9 +54,9 @@ public class real_estate implements Serializable {
 	private List<Claim> Claims;
 	@OneToMany(mappedBy = "real_estateV")
 	private Set<Visit> visits; 
-	//@OneToMany(mappedBy = "real_estate")
-	//private Set<Deposit_of_guarantees> DG;
-	
+	/*@OneToMany(mappedBy = "real_estate")
+	private Set<Deposit_of_guarantees> DG;
+	*/
 	@OneToOne
 	private Ads ads;
 
@@ -104,14 +102,14 @@ public class real_estate implements Serializable {
 	}                
 	//commit test
 
-	//public Set<Deposit_of_guarantees> getDG() {
-		//return DG;
-//	}
+	/*public Set<Deposit_of_guarantees> getDG() {
+		return DG;
+	}
 
-	//public void setDG(Set<Deposit_of_guarantees> dG) {
-	//	DG = dG;
-//	}
-
+	public void setDG(Set<Deposit_of_guarantees> dG) {
+		DG = dG;
+	}
+*/
 
 
 	public List<Claim> getClaims() {
