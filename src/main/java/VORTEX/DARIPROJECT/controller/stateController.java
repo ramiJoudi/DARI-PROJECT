@@ -58,16 +58,15 @@ public class stateController {
 	public String deleteRealstate(@PathVariable long id) {
 		return service.deleteRealstate(id);
 	}
+	
+	
 	@GetMapping("/search/{location}")
 	
 	   public ResponseEntity<?>  searchstate(@PathVariable("location") String location)
 	   {
 		
-		
-	
 	      	return ResponseEntity.ok(s.searchstate(location)); 
-
-	   }
+   }
 	
 
 }

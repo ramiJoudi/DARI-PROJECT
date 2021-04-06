@@ -26,8 +26,8 @@ public class TwilioSmsSender implements SmsSender{
 
     
     public void sendSms(SmsRequest smsRequest) {
-        if (isPhoneNumberValid(smsRequest.setPhoneNumber("+21625446652"))) {
-            PhoneNumber to = new PhoneNumber(smsRequest.setPhoneNumber("+21625446652"));
+        if (isPhoneNumberValid(smsRequest.getPhoneNumber())) {
+            PhoneNumber to = new PhoneNumber(smsRequest.getPhoneNumber());
             PhoneNumber from = new PhoneNumber(twilioConfiguration.getTrialNumber());
             String message = smsRequest.getMessage();
             MessageCreator creator = Message.creator(to, from, message);

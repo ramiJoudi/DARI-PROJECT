@@ -36,11 +36,11 @@ public class stateService {
 		
 	}
 	
-	public ResponseEntity<?> searchstate(String location) {
+/*	public ResponseEntity<?> searchstate(String location) {
 
 		return ResponseEntity.ok("Location"+ (List<String>)rep.searchstate(location));
 
 
   
-  }
+  }*/
 }
