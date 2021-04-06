@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import VORTEX.DARIPROJECT.ENTITY.real_estate;
 
 @Repository
-public interface stateRepository extends JpaRepository<real_estate,Integer> {
-	@Query("SELECT m FROM real_estate m WHERE m.location LIKE CONCAT('%',:location,'%')")
-	public List<real_estate> searchstate(@Param("location") String location);
+public interface stateRepository extends JpaRepository<real_estate,Long> {
+	@Query("SELECT m.location FROM real_estate m WHERE m.location LIKE CONCAT('%',:location,'%')")
+	public List<String> searchstate(@Param("location") String location);
 
 }

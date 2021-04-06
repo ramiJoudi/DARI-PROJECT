@@ -44,14 +44,14 @@ public class Ads implements Serializable{
 		Type = type;
 		this.parkingSpace = parkingSpace;
 		this.customers = customers;
-		RS = rS;
+	//	RS = rS;
 	}
 	
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "ads")
 	private Set<customer> customers;
 	
-	@OneToOne(mappedBy="ads")
-	private real_estate RS; // RS : real state 
+	/*@OneToOne(mappedBy="ads")
+	private real_estate RS; // RS : real state */
 
 	public int getAdID() {
 		return AdID;
@@ -150,12 +150,12 @@ public class Ads implements Serializable{
 
 	
 
-	public real_estate getRS() {
+/*	public real_estate getRS() {
 		return RS;
 	}
 
 	public void setRS(real_estate rS) {
 		RS = rS;
-	}
+	}*/
 	
 }

@@ -19,11 +19,11 @@ public class stateService {
 		
 	}
 	
-	public real_estate getRealstateById(int id) {
+	public real_estate getRealstateById(long id) {
 		return rep.findById(id).orElse(null);
 	}
 	
-	public String deleteRealstate(int id) {
+	public String deleteRealstate(long id) {
 		rep.deleteById(id);
 		return "Realstate removed!!"+id;
 	}
@@ -38,7 +38,7 @@ public class stateService {
 	
 	public ResponseEntity<?> searchstate(String location) {
 
-		return ResponseEntity.ok("Location"+ (List<real_estate>)rep.searchstate(location));
+		return ResponseEntity.ok("Location"+ (List<String>)rep.searchstate(location));
 
 
   

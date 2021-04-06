@@ -26,9 +26,9 @@ public class real_estate implements Serializable {
 
 
 	@Id
-	@GeneratedValue (strategy= GenerationType.IDENTITY)
+	@GeneratedValue (strategy= GenerationType.AUTO)
 	@Column(name="status")
-	private int status; 
+	private long status; 
 	@Column(name="location")
 	private String location;
 	@Column(name="purchasing_price")
@@ -36,7 +36,7 @@ public class real_estate implements Serializable {
 	@Column(name="buy_rent")//true for buy false for rent
 	private boolean buy_rent;
 	
-	public real_estate(int status, String location, float purchasing_price, boolean buy_rent, List<Claim> claims,
+	public real_estate(long status, String location, float purchasing_price, boolean buy_rent, List<Claim> claims,
 			Set<Visit> visits, Set<Deposit_of_guarantees> dG, Ads ads, VORTEX.DARIPROJECT.ENTITY.owner owner) {
 		super();
 		this.status = status;
@@ -46,8 +46,8 @@ public class real_estate implements Serializable {
 		Claims = claims;
 		this.visits = visits;
 		//DG = dG;
-		this.ads = ads;
-		this.owner = owner;
+		//this.ads = ads;
+		//this.owner = owner;
 	}
  
 	@OneToMany(mappedBy = "real_estate")
@@ -57,11 +57,11 @@ public class real_estate implements Serializable {
 	/*@OneToMany(mappedBy = "real_estate")
 	private Set<Deposit_of_guarantees> DG;
 	*/
-	@OneToOne
-	private Ads ads;
+	/*@OneToOne
+	private Ads ads;*/
 
-	@ManyToOne
-	private owner owner;
+	/*@ManyToOne
+	private owner owner;*/
 	
 	public real_estate() {
 		super();
@@ -69,7 +69,7 @@ public class real_estate implements Serializable {
 
 
 
-	public int getStatus() {
+	public long getStatus() {
 		return status;
 	}
 
@@ -136,7 +136,7 @@ public class real_estate implements Serializable {
 
 
 
-	public Ads getAds() {
+	/*public Ads getAds() {
 		return ads;
 	}
 
@@ -145,10 +145,10 @@ public class real_estate implements Serializable {
 	public void setAds(Ads ads) {
 		this.ads = ads;
 	}
+*/
 
 
-
-	public owner getOwner() {
+	/*public owner getOwner() {
 		return owner;
 	}
 
@@ -156,5 +156,5 @@ public class real_estate implements Serializable {
 
 	public void setOwner(owner owner) {
 		this.owner = owner;
-	}
+	}*/
 }

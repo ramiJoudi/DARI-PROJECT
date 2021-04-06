@@ -23,9 +23,9 @@ import javax.persistence.Table;
 		private String name;
 		private int phone_number;
 		
-		@OneToMany(cascade = CascadeType.ALL,mappedBy = "owner")
+		/*@OneToMany(cascade = CascadeType.ALL,mappedBy = "owner")
 		private Set<real_estate> real_estates;
-
+*/
 	 
 		public owner(String username, int mobile, String login, String pwd, int number_o, String name,
 				int phone_number) {
