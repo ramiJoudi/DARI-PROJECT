@@ -10,7 +10,7 @@ import VORTEX.DARIPROJECT.ENTITY.real_estate;
 
 @Repository
 public interface stateRepository extends JpaRepository<real_estate,Long> {
-	@Query("SELECT m.location FROM real_estate m WHERE m.location LIKE CONCAT('%',:location,'%')")
-	public List<String> searchstate(@Param("location") String location);
+	@Query("SELECT m FROM real_estate m WHERE m.location LIKE CONCAT('%',:location,'%') and (m.buy=1 or m.rent=1)")
+	public List<real_estate> searchstate(@Param("location") String location);
 
 }

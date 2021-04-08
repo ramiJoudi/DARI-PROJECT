@@ -19,44 +19,46 @@ import javax.persistence.OneToOne;
 
 @SuppressWarnings("serial")
 @Entity
-@Table( name= "D_real_estate")
+@Table(name="real_estate")
 
 public class real_estate implements Serializable {
 	
 
 
 	@Id
-	@GeneratedValue (strategy= GenerationType.AUTO)
-	@Column(name="status")
+	@GeneratedValue (strategy= GenerationType.IDENTITY)
+	@Column(name="Status")
 	private long status; 
-	@Column(name="location")
+	@Column(name="Location")
 	private String location;
-	@Column(name="purchasing_price")
+	@Column(name="Purchasing_price")
 	private float purchasing_price;
-	@Column(name="buy_rent")//true for buy false for rent
-	private boolean buy_rent;
+	@Column(name="Buy")//true for buy 
+	private boolean buy;
+	@Column(name="Rent")//true for rent 
+	private boolean rent;
 	
-	public real_estate(long status, String location, float purchasing_price, boolean buy_rent, List<Claim> claims,
-			Set<Visit> visits, Set<Deposit_of_guarantees> dG, Ads ads, VORTEX.DARIPROJECT.ENTITY.owner owner) {
+
+ 
+	public real_estate(long status, String location, float purchasing_price, boolean buy, boolean rent,
+			List<Claim> claims, Set<Visit> visits) {
 		super();
 		this.status = status;
 		this.location = location;
 		this.purchasing_price = purchasing_price;
-		this.buy_rent = buy_rent;
-		Claims = claims;
-		this.visits = visits;
-		//DG = dG;
-		//this.ads = ads;
-		//this.owner = owner;
+		this.buy = buy;
+		this.rent = rent;
+		//Claims = claims;
+		//this.visits = visits;
 	}
- 
-	@OneToMany(mappedBy = "real_estate")
-	private List<Claim> Claims;
-	@OneToMany(mappedBy = "real_estateV")
-	private Set<Visit> visits; 
-	/*@OneToMany(mappedBy = "real_estate")
-	private Set<Deposit_of_guarantees> DG;
-	*/
+
+
+
+	//@OneToMany(mappedBy = "real_estate")
+	//private List<Claim> Claims;
+	//@OneToMany(mappedBy = "real_estateV")
+	//private Set<Visit> visits; 
+	
 	/*@OneToOne
 	private Ads ads;*/
 
@@ -93,26 +95,12 @@ public class real_estate implements Serializable {
 		this.purchasing_price = purchasing_price;
 	}
 
-	public boolean isBuy_rent() {
-		return buy_rent;
-	}
-
-	public void setBuy_rent(boolean buy_rent) {
-		this.buy_rent = buy_rent;
-	}                
-	//commit test
-
-	/*public Set<Deposit_of_guarantees> getDG() {
-		return DG;
-	}
-
-	public void setDG(Set<Deposit_of_guarantees> dG) {
-		DG = dG;
-	}
-*/
+              
+	
 
 
-	public List<Claim> getClaims() {
+
+	/*public List<Claim> getClaims() {
 		return Claims;
 	}
 
@@ -120,10 +108,10 @@ public class real_estate implements Serializable {
 
 	public void setClaims(List<Claim> claims) {
 		Claims = claims;
-	}
+	}*/
 
 
-
+/*
 	public Set<Visit> getVisits() {
 		return visits;
 	}
@@ -132,6 +120,34 @@ public class real_estate implements Serializable {
 
 	public void setVisits(Set<Visit> visits) {
 		this.visits = visits;
+	}
+
+*/
+
+	public boolean isRent() {
+		return rent;
+	}
+
+
+
+	public void setRent(boolean rent) {
+		this.rent = rent;
+	}
+
+
+
+	
+
+
+
+	public boolean isBuy() {
+		return buy;
+	}
+
+
+
+	public void setBuy(boolean buy) {
+		this.buy = buy;
 	}
 
 

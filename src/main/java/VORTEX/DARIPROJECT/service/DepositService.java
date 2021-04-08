@@ -34,6 +34,9 @@ public class DepositService {
 		existingdeposit.setJC(depo.getJC());
 		existingdeposit.setPayslips(depo.getPayslips());
 		existingdeposit.setEL(depo.getEL());
+		existingdeposit.setPhoneNumber(depo.getPhoneNumber());
+		existingdeposit.setAdressMail(depo.getAdressMail());
+		
 		return dg.save(depo);
 	}
 	public void Service(@Qualifier("twilio") TwilioSmsSender smsSender) {

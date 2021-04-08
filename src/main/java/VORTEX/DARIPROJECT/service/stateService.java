@@ -31,7 +31,8 @@ public class stateService {
 		real_estate existingRealestate=rep.findById(Real_estate.getStatus()).orElse(null);
 		existingRealestate.setLocation(Real_estate.getLocation());
 		existingRealestate.setPurchasing_price(Real_estate.getPurchasing_price());
-		existingRealestate.setBuy_rent(Real_estate.isBuy_rent());
+		existingRealestate.setBuy(Real_estate.isBuy());
+		existingRealestate.setRent(Real_estate.isRent());
 		return rep.save(Real_estate);
 		
 	}

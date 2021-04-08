@@ -17,6 +17,7 @@ import VORTEX.DARIPROJECT.ENTITY.Deposit_of_guarantees;
 import VORTEX.DARIPROJECT.service.DepositService;
 import VORTEX.DARIPROJECT.service.Service;
 import VORTEX.DARIPROJECT.service.TwilioSmsSender;
+import VORTEX.DARIPROJECT.service.ValidateMail;
 import VORTEX.DARIPROJECT.service.SmsRequest;
 
 
@@ -30,15 +31,19 @@ public class DepositController {
     private DepositService service;
 	@Autowired
 	private  Service ng ;
-	
+	@Autowired
+	private ValidateMail vlm ;
 	
 	@PostMapping("/addeposit")
 	
 	public Deposit_of_guarantees addeposit(@RequestBody Deposit_of_guarantees deposit ) {
-		 
+		 if(vlm.validateEmail(deposit.getAdressMail()))
+		 {
 	   
 		ng.sendSms(new SmsRequest( deposit.getPhoneNumber()));
+		 
 		return service.save(deposit) ;
+		 }else return null;
 		
 	}
 	

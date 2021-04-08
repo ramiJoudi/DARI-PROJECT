@@ -23,7 +23,7 @@ public class Deposit_of_guarantees implements Serializable {
 	}
 
 	@Id
-	@GeneratedValue (strategy= GenerationType.AUTO)
+	@GeneratedValue (strategy= GenerationType.IDENTITY)
 	@Column(name="ID")
 	private long ID; 
 	@Column(name="JC") //jc : justificaion de paiment , imgurl
@@ -34,12 +34,14 @@ public class Deposit_of_guarantees implements Serializable {
 	private String EL; 
 	@Column(name="phoneNumber") 
 	private String PhoneNumber;
+	@Column(name="adressMail") 
+	private String adressMail;
 	@OneToOne
 	private real_estate Real_estate;
 	
 	
 	
-	public Deposit_of_guarantees(long iD, String jC, String payslips, String eL, String phoneNumber,
+	public Deposit_of_guarantees(long iD, String jC, String payslips, String eL, String phoneNumber,String adressMail,
 			real_estate real_estate) {
 		super();
 		ID = iD;
@@ -47,6 +49,7 @@ public class Deposit_of_guarantees implements Serializable {
 		Payslips = payslips;
 		EL = eL;
 		this.PhoneNumber = phoneNumber;
+		this.adressMail = adressMail;
 		Real_estate = real_estate;
 	}
 
@@ -56,7 +59,7 @@ public class Deposit_of_guarantees implements Serializable {
 	public long getID() {
 		return ID;
 	}
-	public void setID(int iD) {
+	public void setID(long iD) {
 		ID = iD;
 	}
 	public String getJC() {
@@ -96,6 +99,20 @@ public class Deposit_of_guarantees implements Serializable {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.PhoneNumber = phoneNumber;
+	}
+
+
+
+
+	public String getAdressMail() {
+		return adressMail;
+	}
+
+
+
+
+	public void setAdressMail(String adressMail) {
+		this.adressMail = adressMail;
 	}
 
 }
