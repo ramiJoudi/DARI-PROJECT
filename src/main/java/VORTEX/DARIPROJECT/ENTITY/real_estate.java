@@ -23,7 +23,7 @@ import javax.persistence.OneToOne;
 
 public class real_estate implements Serializable {
 	
-
+ 
 
 	@Id
 	@GeneratedValue (strategy= GenerationType.IDENTITY)

@@ -31,7 +31,7 @@ class TestMail  {
 
 	public TestMail() {
 		super();
-	}
+	} 
 	
 }
 @RestController
