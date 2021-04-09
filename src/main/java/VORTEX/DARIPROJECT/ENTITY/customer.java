@@ -24,11 +24,29 @@ import javax.persistence.OneToOne;
 	private int trial;
 	
 	
-	public customer(String username, int mobile, String login, String pwd,
-			Set<VORTEX.DARIPROJECT.ENTITY.WishList> wishList, int customer_number, int trial, Set<Claim> claimsC,
-			Set<Visit> visitsC, Set<Contract> contracts, Set<Deposit_of_guarantees> deposit_of_guarantes,
-			Set<Chat> chatsC, subscription sub, Set<Loan> loan_List, Ads ads) {
-		super(username, mobile, login, pwd, wishList);
+	
+ 
+	public customer() {
+		super();
+		
+	}
+
+
+
+	
+	
+
+	
+
+
+	@OneToMany(mappedBy = "Client")
+	private Set<Claim> claimsC;
+	
+	public customer(String username, int mobile, String login, String pwd, int customer_number, int trial,
+			Set<Claim> claimsC, Set<Visit> visitsC, Set<Contract> contracts,
+			Set<Deposit_of_guarantees> deposit_of_guarantes, Set<Chat> chatsC, subscription sub, Set<Loan> loan_List,
+			Ads ads) {
+		super(username, mobile, login, pwd);
 		this.customer_number = customer_number;
 		this.trial = trial;
 		this.claimsC = claimsC;
@@ -40,17 +58,15 @@ import javax.persistence.OneToOne;
 		this.loan_List = loan_List;
 		this.ads = ads;
 	}
- 
-	public customer() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 
 
-	@OneToMany(mappedBy = "Client")
-	private Set<Claim> claimsC;
-	
+
+
+
+
+
+
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "customerV")
 	private Set<Visit> visitsC;
  

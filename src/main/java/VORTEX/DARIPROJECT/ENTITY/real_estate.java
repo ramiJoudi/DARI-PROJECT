@@ -4,14 +4,18 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 //import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
-import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 //import javax.persistence.OneToOne;
@@ -40,19 +44,53 @@ public class real_estate implements Serializable {
 	
 
  
+	
+
+	public real_estate(String location, float purchasing_price, boolean buy, boolean rent, WishList wishlist) {
+		super();
+		this.location = location;
+		this.purchasing_price = purchasing_price;
+		this.buy = buy;
+		this.rent = rent;
+		this.wishlist = wishlist;
+		//this.ads = ads;
+		//this.owner = owner;
+	}
+
+
+
 	public real_estate(long status, String location, float purchasing_price, boolean buy, boolean rent,
-			List<Claim> claims, Set<Visit> visits) {
+			WishList wishlist) {
 		super();
 		this.status = status;
 		this.location = location;
 		this.purchasing_price = purchasing_price;
 		this.buy = buy;
 		this.rent = rent;
-		//Claims = claims;
-		//this.visits = visits;
+		this.wishlist = wishlist;
+		//this.ads = ads;
+		//this.owner = owner;
 	}
 
 
+
+	public WishList getWishlist() {
+		return wishlist;
+	}
+
+
+
+	public void setWishlist(WishList wishlist) {
+		this.wishlist = wishlist;
+	}
+
+
+	
+	
+   @JsonIgnore
+	@ManyToOne(cascade = CascadeType.ALL,optional = true)
+@JoinColumn(name = "wishlist_id",nullable = true)
+	private WishList wishlist;
 
 	//@OneToMany(mappedBy = "real_estate")
 	//private List<Claim> Claims;
@@ -71,13 +109,19 @@ public class real_estate implements Serializable {
 
 
 
+	
+
 	public long getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+
+
+	public void setStatus(long status) {
 		this.status = status;
 	}
+
+
 
 	public String getLocation() {
 		return location;
@@ -146,6 +190,8 @@ public class real_estate implements Serializable {
 
 
 
+
+
 	public void setBuy(boolean buy) {
 		this.buy = buy;
 	}
@@ -161,10 +207,10 @@ public class real_estate implements Serializable {
 	public void setAds(Ads ads) {
 		this.ads = ads;
 	}
-*/
 
 
-	/*public owner getOwner() {
+
+	public owner getOwner() {
 		return owner;
 	}
 

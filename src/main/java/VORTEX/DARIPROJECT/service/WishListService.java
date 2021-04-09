@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 
 import VORTEX.DARIPROJECT.ENTITY.WishList;
-
+import VORTEX.DARIPROJECT.ENTITY.real_estate;
 import VORTEX.DARIPROJECT.Repository.WishListrepo;
 
 @Service
@@ -20,5 +20,7 @@ public class WishListService {
 		wl.deleteById(id);
 		return "Realstate removed!!"+id;
 	}
+	
+
 
 }

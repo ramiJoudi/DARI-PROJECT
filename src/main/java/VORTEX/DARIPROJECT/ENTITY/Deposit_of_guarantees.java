@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,11 +28,12 @@ public class Deposit_of_guarantees implements Serializable {
 	@Column(name="ID")
 	private long ID; 
 	@Column(name="JC") //jc : justificaion de paiment , imgurl
-	private String JC; 
-	@Column(name="Payslips") // fiches de paies , imgurl
-	private String Payslips;
-	@Column(name="EL") //el : engagement letter , imgurl
-	private String EL; 
+	@Lob
+	private byte[] JC; 
+	@Lob
+	private byte[] Payslips; // fiches de paie
+	@Lob
+	private byte[] EL; // engagement letter
 	@Column(name="phoneNumber") 
 	private String PhoneNumber;
 	@Column(name="adressMail") 
@@ -41,17 +43,7 @@ public class Deposit_of_guarantees implements Serializable {
 	
 	
 	
-	public Deposit_of_guarantees(long iD, String jC, String payslips, String eL, String phoneNumber,String adressMail,
-			real_estate real_estate) {
-		super();
-		ID = iD;
-		JC = jC;
-		Payslips = payslips;
-		EL = eL;
-		this.PhoneNumber = phoneNumber;
-		this.adressMail = adressMail;
-		Real_estate = real_estate;
-	}
+
 
 	
 	
@@ -62,25 +54,38 @@ public class Deposit_of_guarantees implements Serializable {
 	public void setID(long iD) {
 		ID = iD;
 	}
-	public String getJC() {
+
+
+	
+	public byte[] getJC() {
 		return JC;
 	}
-	public void setJC(String jC) {
+	public void setJC(byte[] jC) {
 		JC = jC;
 	}
-	public String getPayslips() {
+	public byte[] getPayslips() {
 		return Payslips;
 	}
-	public void setPayslips(String payslips) {
+	public void setPayslips(byte[] payslips) {
 		Payslips = payslips;
 	}
-	public String getEL() {
+	public byte[] getEL() {
 		return EL;
 	}
-	public void setEL(String eL) {
+	public void setEL(byte[] eL) {
 		EL = eL;
 	}
-
+	public Deposit_of_guarantees(long iD, byte[] jC, byte[] payslips, byte[] eL, String phoneNumber, String adressMail,
+			real_estate real_estate) {
+		super();
+		ID = iD;
+		JC = jC;
+		Payslips = payslips;
+		EL = eL;
+		PhoneNumber = phoneNumber;
+		this.adressMail = adressMail;
+		Real_estate = real_estate;
+	}
 	public real_estate getReal_estate() {
 		return Real_estate;
 	}

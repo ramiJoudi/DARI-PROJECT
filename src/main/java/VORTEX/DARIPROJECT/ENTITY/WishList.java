@@ -1,14 +1,19 @@
 package VORTEX.DARIPROJECT.ENTITY;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -63,32 +68,45 @@ public class WishList implements Serializable {
 	@Column(name="Elevator")
 	private boolean Elevator;
 	
-	public WishList(int id, float area, float price, String location, int nbRooms, int nbBaths, int nbGarage,
-			boolean terrase, boolean piscine, boolean garde, boolean airConditionnig, boolean heater, boolean meuble,
-			boolean basement, boolean elevator, User user) {
-		super();
-		this.id = id;
-		this.area = area;
-		this.price = price;
-		this.location = location;
-		this.nbRooms = nbRooms;
-		this.nbBaths = nbBaths;
-		this.nbGarage = nbGarage;
-		Terrase = terrase;
-		Piscine = piscine;
-		Garde = garde;
-		this.airConditionnig = airConditionnig;
-		Heater = heater;
-		Meuble = meuble;
-		Basement = basement;
-		Elevator = elevator;
+	
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private User user;
+	
+	@OneToMany(mappedBy = "wishlist",fetch = FetchType.LAZY)
+	private List<real_estate> real_estate;
+
+
+
+
+
+	
+
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
-	@ManyToOne
-	private User user;
 
+
+	public List<real_estate> getReal_estate() {
+		return real_estate;
+	}
+
+
+	public void setReal_estate(List<real_estate> real_estate) {
+		this.real_estate = real_estate;
+	}
+
+
+
+
+	
 
 	public int getId() {
 		return id;
@@ -235,19 +253,59 @@ public class WishList implements Serializable {
 	}
 
 
+	public WishList(float area, float price, String location, int nbRooms, int nbBaths, int nbGarage, boolean terrase,
+			boolean piscine, boolean garde, boolean airConditionnig, boolean heater, boolean meuble, boolean basement,
+			boolean elevator, User user, List<VORTEX.DARIPROJECT.ENTITY.real_estate> real_estate) {
+		super();
+		this.area = area;
+		this.price = price;
+		this.location = location;
+		this.nbRooms = nbRooms;
+		this.nbBaths = nbBaths;
+		this.nbGarage = nbGarage;
+		Terrase = terrase;
+		Piscine = piscine;
+		Garde = garde;
+		this.airConditionnig = airConditionnig;
+		Heater = heater;
+		Meuble = meuble;
+		Basement = basement;
+		Elevator = elevator;
+		this.user = user;
+		this.real_estate = real_estate;
+	}
+
+
+	public WishList(int id, float area, float price, String location, int nbRooms, int nbBaths, int nbGarage,
+			boolean terrase, boolean piscine, boolean garde, boolean airConditionnig, boolean heater, boolean meuble,
+			boolean basement, boolean elevator, User user, List<VORTEX.DARIPROJECT.ENTITY.real_estate> real_estate) {
+		super();
+		this.id = id;
+		this.area = area;
+		this.price = price;
+		this.location = location;
+		this.nbRooms = nbRooms;
+		this.nbBaths = nbBaths;
+		this.nbGarage = nbGarage;
+		Terrase = terrase;
+		Piscine = piscine;
+		Garde = garde;
+		this.airConditionnig = airConditionnig;
+		Heater = heater;
+		Meuble = meuble;
+		Basement = basement;
+		Elevator = elevator;
+		this.user = user;
+		this.real_estate = real_estate;
+	}
+
+
 	public void setElevator(boolean elevator) {
 		Elevator = elevator;
 	}
 
 
-	public User getUser() {
-		return user;
-	}
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 
 
 	public static long getSerialversionuid() {

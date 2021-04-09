@@ -12,6 +12,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
  
 
@@ -27,20 +28,45 @@ import javax.persistence.OneToMany;
 	private String login;
 	private String pwd;
 	
-	public User(String username, int mobile, String login, String pwd,
-			Set<VORTEX.DARIPROJECT.ENTITY.WishList> wishList) {
+	
+	@OneToOne(mappedBy = "user")
+	private WishList whishlist ;
+
+	
+	public User(String username, int mobile, String login, String pwd) {
 		super();
 		this.username = username;
 		this.mobile = mobile;
 		this.login = login;
 		this.pwd = pwd;
-		WishList = wishList;
+		
 	}
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="user")
-	private Set<WishList> WishList;
-	 
- 
+
+
+
+	public WishList getWhishlist() {
+		return whishlist;
+	}
+
+
+
+	public void setWhishlist(WishList whishlist) {
+		this.whishlist = whishlist;
+	}
+
+
+
+	public User(String username, int mobile, String login, String pwd, WishList whishlist) {
+		super();
+		this.username = username;
+		this.mobile = mobile;
+		this.login = login;
+		this.pwd = pwd;
+		this.whishlist = whishlist;
+	}
+
+
+
 	public User() {
 		super();
 	}
@@ -68,12 +94,6 @@ import javax.persistence.OneToMany;
 	}
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
-	}
-	public Set<WishList> getWishList() {
-		return WishList;
-	}
-	public void setWishList(Set<WishList> wishList) {
-		WishList = wishList;
 	}
 
 	public static long getSerialversionuid() {
