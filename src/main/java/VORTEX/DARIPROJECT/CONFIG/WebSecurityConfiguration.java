@@ -38,7 +38,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
         .authorizeRequests()
-                .antMatchers("/singin/**","/confirm-account/**","/confirm-accountCustomer")
+                .antMatchers("/singin/**","/confirm-account/**","/login/**")
                 .permitAll()
                 .antMatchers("/customerHome","/customerHome/**")
                 .hasAuthority("CUSTOMER")

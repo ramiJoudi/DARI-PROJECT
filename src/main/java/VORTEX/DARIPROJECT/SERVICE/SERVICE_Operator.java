@@ -55,6 +55,17 @@ public void Update_Operator( int id,Operator o) throws ResourceNotFoundException
 	
 	}
 
+public void Update_OperatorPWD( int id,String pwd) throws ResourceNotFoundException{
+	
+	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	String hashedPassword = passwordEncoder.encode(pwd);
+	Operator o=RO.findById(id).orElseThrow(
+			 ()->new ResourceNotFoundException(" this user doesn't exist"));
+ 
+	o.setPwd(hashedPassword);
+	RO.save(o);
+	
+	}	
 	
 
 

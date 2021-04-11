@@ -94,11 +94,14 @@ public void deleteCustomer(@RequestParam int id)
 	}
 
 @GetMapping(value = "/customerHome/upadteCustomer",consumes =MediaType.APPLICATION_JSON_VALUE)
-public void updateAdmin(@RequestParam int id,@RequestBody customer c) throws ResourceNotFoundException{
+public void updateCustomer(@RequestParam int id,@RequestBody customer c) throws ResourceNotFoundException{
 
 	SC.Update_Customer(id, c);
 	
 }
+
+
+
 @GetMapping(value = "/customerHome/customerDetails")
 public String GetAdmin(@RequestParam int id) {
 	 

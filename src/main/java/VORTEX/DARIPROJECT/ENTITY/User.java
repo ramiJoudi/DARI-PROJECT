@@ -41,12 +41,41 @@ import com.sun.istack.NotNull;
 	private  boolean enabled;
 	private String role;
 	private String pwd;
+	private int Asingaler_cmpt;
+	private int Bsingaler_cmpt;
+	public int getAsingaler_cmpt() {
+		return Asingaler_cmpt;
+	}
+	public void setAsingaler_cmpt(int asingaler_cmpt) {
+		Asingaler_cmpt = asingaler_cmpt;
+	}
+	public int getBsingaler_cmpt() {
+		return Bsingaler_cmpt;
+	}
+	public void setBsingaler_cmpt(int bsingaler_cmpt) {
+		Bsingaler_cmpt = bsingaler_cmpt;
+	}
+	public int getNsingaler_cmpt() {
+		return Nsingaler_cmpt;
+	}
+	public void setNsingaler_cmpt(int nsingaler_cmpt) {
+		Nsingaler_cmpt = nsingaler_cmpt;
+	}
+	private int Nsingaler_cmpt;
+	private String resetPwdCode;
+	
 	@Column(name = "verification_code", length = 64)
 	private String verificationCode;
 
  
 	 
  
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getVerificationCode() {
 		return verificationCode;
 	}
@@ -117,6 +146,12 @@ import com.sun.istack.NotNull;
 	}
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+	public String getResetPwdCode() {
+		return resetPwdCode;
+	}
+	public void setResetPwdCode(String resetPwdCode) {
+		this.resetPwdCode = resetPwdCode;
 	}
 	 
 

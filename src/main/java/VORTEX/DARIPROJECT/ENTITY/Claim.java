@@ -18,21 +18,28 @@ public class Claim implements Serializable{
 	@Id
 	@GeneratedValue (strategy= GenerationType.AUTO)
 	private int idClaim;
-	private String subject;
+	private ClaimType claimSubject;
 	private String description;
 
 	@ManyToOne  
 	private real_estate real_estate;
 	
 	@ManyToOne  
-	@JoinColumn(name = "idClient", referencedColumnName = "id", insertable=false, updatable=false)
+	@JoinColumn(referencedColumnName = "id")
 	private customer Client;
 	
+	public customer getClient() {
+		return Client;
+	}
+
+	public void setClient(customer client) {
+		Client = client;
+	}
+
 	public Claim(int idClaim, String subject, String description) {
 	super();
 	this.idClaim = idClaim;
-	this.subject = subject;
-	this.description = description;
+ 
 }
 	
 public Claim() {
@@ -47,17 +54,23 @@ public int getIdClaim() {
 public void setIdClaim(int idClaim) {
 	this.idClaim = idClaim;
 }
-public String getSubject() {
-	return subject;
+
+public ClaimType getClaimSubject() {
+	return claimSubject;
 }
-public void setSubject(String subject) {
-	this.subject = subject;
+
+public void setClaimSubject(ClaimType claimSubject) {
+	this.claimSubject = claimSubject;
 }
+
 public String getDescription() {
 	return description;
 }
+
 public void setDescription(String description) {
 	this.description = description;
 }
+  
+ 
 
 }
