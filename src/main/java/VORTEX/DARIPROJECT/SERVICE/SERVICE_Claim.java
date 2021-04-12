@@ -2,10 +2,15 @@ package VORTEX.DARIPROJECT.SERVICE;
 
 import java.util.ArrayList;
 
+import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import VORTEX.DARIPROJECT.ENTITY.Claim;
+
+import VORTEX.DARIPROJECT.ENTITY.ClaimType;
 
 import VORTEX.DARIPROJECT.REPOSITORY.REPOSITORY_Claim;
 
@@ -27,7 +32,10 @@ public class SERVICE_Claim {
 	public void update_claim( int id,Claim c)  throws ResourceNotFoundException{
 		 Claim c1=Rclaim.findById(id).orElseThrow(
 				 ()->new ResourceNotFoundException(" this claim doesn't exist"));
-		c1.setSubject(c.getSubject());
+
+	 
+		c1.setClaimSubject(c.getClaimSubject());
+
 		c1.setDescription(c.getDescription());
 		 Rclaim.save(c1);
 	}
@@ -42,6 +50,11 @@ public class SERVICE_Claim {
 		return  (ArrayList<Claim>) Rclaim.findAll();
 	}
 	
+
+	public List<Claim> getClaimsBySubject(ClaimType claimSubject){
+		return Rclaim.getByClaimSubject(claimSubject);
+	}
+
 	
 
 }

@@ -10,4 +10,7 @@ import VORTEX.DARIPROJECT.ENTITY.customer;
 public interface REPOSITORY_Customer extends CrudRepository<customer, Integer> {
 	customer findByEmail(String email);
 	customer findByVerificationCode(String verificationCode);
+
+	customer findByUsername(String username);
+
 }

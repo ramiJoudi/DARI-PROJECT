@@ -8,5 +8,7 @@ import VORTEX.DARIPROJECT.ENTITY.User;
 @Repository
 public interface REPOSITORY_User  extends CrudRepository<User, Integer>  {
 	 User findByUsername(String username);
-	
+
+	User findByresetPwdCode(String resetPwdCode);
+
 }
