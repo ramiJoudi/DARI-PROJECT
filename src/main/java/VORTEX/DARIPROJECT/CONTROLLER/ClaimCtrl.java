@@ -1,5 +1,6 @@
 package VORTEX.DARIPROJECT.CONTROLLER;
 
+
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,12 +8,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.mail.SimpleMailMessage;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import VORTEX.DARIPROJECT.ENTITY.Claim;
+
 import VORTEX.DARIPROJECT.ENTITY.ClaimType;
 import VORTEX.DARIPROJECT.ENTITY.customer;
 import VORTEX.DARIPROJECT.SERVICE.EmailService;
@@ -21,10 +24,12 @@ import VORTEX.DARIPROJECT.SERVICE.SERVICE_Claim;
 import VORTEX.DARIPROJECT.SERVICE.SERVICE_Customer;
 import VORTEX.DARIPROJECT.SERVICE.SERVICE_USER;
 
+
 @RestController
 public class ClaimCtrl {
 	@Autowired
 	private SERVICE_Claim S_C;
+
 	@Autowired
 	private SERVICE_Customer SC;
 	@Autowired
@@ -158,6 +163,7 @@ public class ClaimCtrl {
 		}
 	}
 
+
 	@GetMapping(value = "/customerHome/Claims")
 	public ArrayList<Claim> GetClaims(){
 	 
@@ -181,9 +187,11 @@ public class ClaimCtrl {
 		return S_C.get_claimByID(id);}
 		 
 
+
 	@GetMapping("/customerHome/searchBysubject")
 	public List<Claim> searchBysubject(ClaimType ClaimSType){
 	return S_C.getClaimsBySubject(ClaimSType);
 		//	return S_C.getClaimsBySubject(subject); 
 	}
+
 }

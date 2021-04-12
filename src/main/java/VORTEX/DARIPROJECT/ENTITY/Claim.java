@@ -18,13 +18,16 @@ public class Claim implements Serializable{
 	@Id
 	@GeneratedValue (strategy= GenerationType.AUTO)
 	private int idClaim;
+
 	private ClaimType claimSubject;
+
 	private String description;
 
 	@ManyToOne  
 	private real_estate real_estate;
 	
 	@ManyToOne  
+
 	@JoinColumn(referencedColumnName = "id")
 	private customer Client;
 	
@@ -40,6 +43,7 @@ public class Claim implements Serializable{
 	super();
 	this.idClaim = idClaim;
  
+
 }
 	
 public Claim() {
@@ -54,6 +58,7 @@ public int getIdClaim() {
 public void setIdClaim(int idClaim) {
 	this.idClaim = idClaim;
 }
+
 
 public ClaimType getClaimSubject() {
 	return claimSubject;
@@ -72,5 +77,6 @@ public void setDescription(String description) {
 }
   
  
+
 
 }

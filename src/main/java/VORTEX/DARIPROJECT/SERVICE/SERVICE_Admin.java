@@ -16,7 +16,9 @@ import org.springframework.stereotype.Service;
 
 
 import VORTEX.DARIPROJECT.ENTITY.admin;
+
 import VORTEX.DARIPROJECT.ENTITY.customer;
+
 import VORTEX.DARIPROJECT.REPOSITORY.REPOSITORY_Admin;
 import net.bytebuddy.utility.RandomString;
  
@@ -69,6 +71,7 @@ public class SERVICE_Admin{
 		RA.save(a1);
 			
 			}
+
 		
 		public void Update_AdminPWD( int id,String pwd) throws ResourceNotFoundException{
 			
@@ -81,6 +84,7 @@ public class SERVICE_Admin{
 			RA.save(a);
 			
 			}	
+
 		
 
 	 

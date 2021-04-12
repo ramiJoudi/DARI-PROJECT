@@ -56,6 +56,7 @@ public void Update_Customer( int id,customer c) throws ResourceNotFoundException
 	
 	}
 
+
 public void Update_CustomerPWD( int id,String pwd) throws ResourceNotFoundException{
 	
 	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -94,7 +95,9 @@ public customer findByEmail(String email) {
  	return RC.findByEmail(email);
  	}
 
+
 public customer findByUsername(String username) {
 	return RC.findByUsername(username);
 }
+
 }

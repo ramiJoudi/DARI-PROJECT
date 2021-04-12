@@ -19,7 +19,6 @@ public class SERVICE_USER implements UserDetailsService {
 private REPOSITORY_User RU;
  
 
-
 @Override
 public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
