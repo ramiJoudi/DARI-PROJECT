@@ -41,6 +41,7 @@ import com.sun.istack.NotNull;
 	private  boolean enabled;
 	private String role;
 	private String pwd;
+	private String verificationCode;
 
 	private int Asingaler_cmpt;
 	private int Bsingaler_cmpt;

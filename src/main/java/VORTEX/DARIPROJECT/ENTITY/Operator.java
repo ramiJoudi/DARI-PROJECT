@@ -16,9 +16,6 @@ import javax.persistence.Table;
  public class Operator extends User implements Serializable {
 	private static final long serialVersionUID = -5369734855993305723L;
  
-	
-	@ManyToMany(cascade = CascadeType.ALL)
-	private Set<Chat> chats;
 
 
 	public Operator() {
