@@ -1,18 +1,21 @@
 package VORTEX.DARIPROJECT.ENTITY;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GeneratorType;
 
 @Entity
+@Table(name="Loan")
 public class Loan implements Serializable {
 	/**
 	 * 
@@ -21,11 +24,11 @@ public class Loan implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idCredit;
-	private float Price;
-	private float Monthly_paymenet;
+	private float price;
+	private float interestRate;
+	private float monthly_payment;
 	private int loan_duration;
-	@Enumerated(EnumType.STRING)
-	private bank bank;
+//	private bank bank;
 	public int getIdCredit() {
 		return idCredit;
 	}
@@ -33,16 +36,28 @@ public class Loan implements Serializable {
 		this.idCredit = idCredit;
 	}
 	public float getPrice() {
-		return Price;
+		return price;
 	}
-	public void setPrice(float price) {
-		Price = price;
+	public void setPrice(float d) {
+		price = d;
 	}
-	public float getMonthly_paymenet() {
-		return Monthly_paymenet;
+	/*public float getRevenue() {
+		return revenue;
 	}
-	public void setMonthly_paymenet(float monthly_paymenet) {
-		Monthly_paymenet = monthly_paymenet;
+	public float setrevenue() {
+		return revenue;
+	}*/
+	public float getinterestrate(){
+		return interestRate;
+	}
+	public void setinterestrate(float interestRate){
+		this.interestRate=interestRate;
+	}
+	public float getMonthly_payment() {
+		return monthly_payment;
+	}
+	public void setMonthly_payment(float monthly_payment) {
+		this.monthly_payment = monthly_payment;
 	}
 	public int getLoan_duration() {
 		return loan_duration;
@@ -50,20 +65,21 @@ public class Loan implements Serializable {
 	public void setLoan_duration(int loan_duration) {
 		this.loan_duration = loan_duration;
 	}
-	public bank getBank() {
+	/*public bank getBank() {
 		return bank;
 	}
 	public void setBank(bank bank) {
 		this.bank = bank;
-	}
-	public Loan(int idCredit, float price, float monthly_paymenet, int loan_duration,bank bank) {
+	}*/
+
+	public Loan(float price, float interestRate, float monthly_payment, int loan_duration) {
 		super();
-		this.idCredit = idCredit;
-		this.Price = price;
-		Monthly_paymenet = monthly_paymenet;
+		this.price = price;
+		this.interestRate = interestRate;
+		this.monthly_payment = monthly_payment;
 		this.loan_duration = loan_duration;
-		 
 	}
+
 	public Loan() {
 		super();
 	}
