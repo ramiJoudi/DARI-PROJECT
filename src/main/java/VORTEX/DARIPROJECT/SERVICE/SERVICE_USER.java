@@ -29,6 +29,8 @@ public UserDetails loadUserByUsername(String username) throws UsernameNotFoundEx
     return new CustomUserDetails(user);
 }
 
+public User findById(int id) {return RU.findUserById(id);}
+
 
  
 
