@@ -22,7 +22,8 @@ import com.paypal.base.rest.PayPalRESTException;
 @Service
 public class PayPalClient {
 
-	
+	String clientId = "AXIpVUdDyHUtXVbyDOGXss7afPagbGpL74FiElORbv1mnnUA9YebdXTrsb8_enfWc4zULCuxsNYqPiOy";
+	String clientSecret = "EDi88-3yJrBKrQEzkLyMfeKZDBqksAXKx_lvEMAq1Q7NHIs-oDCW0LoaBWegpPROLGp158EeR-ShpBNH";
 	public Map<String, Object> createPayment(String sum){
 	    Map<String, Object> response = new HashMap<String, Object>();
 	    Amount amount = new Amount();
