@@ -12,24 +12,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+@SuppressWarnings("serial")
 @Entity
-@Table(name="contrat")
+@Table(name = "ContractTable")
 public class Contract implements Serializable{
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue (strategy= GenerationType.AUTO)
-	@Column(name="Contract-number")
+	//@Column(name="Contract-number")
 	private int Contractnum;
 	private Float effective_price;
-	private Date effective_Date;
+	//SimpleDateFormat dateFormat= new SimpleDateFormat("dd/MM/yyyy");
+	@Temporal(TemporalType.DATE)
+	private Date effective_Date=new Date();
 	
-	 @OneToMany
-	 private Set<real_estate> real_estates;
+	/* @OneToMany
+	 private Set<real_estate> real_estates;*/
 	
 	public Contract(int contractnum, Float effective_price, Date effective_Date) {
 		super();

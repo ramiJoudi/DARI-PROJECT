@@ -34,9 +34,10 @@ public class real_estate implements Serializable {
 	@OneToMany(mappedBy = "real_estate")
 	private List<Claim> Claims;
 	
+	/*
 	@OneToMany(mappedBy = "real_estateV")
 	private Set<Visit> visits;
-
+*/
 	@ManyToOne
 	private owner owner;
 	

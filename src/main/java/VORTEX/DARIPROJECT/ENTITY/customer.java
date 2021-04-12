@@ -55,8 +55,8 @@ import javax.persistence.Table;
 	@OneToMany(mappedBy = "Client")
 	private Set<Claim> claimsC;
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "customerV")
-	private Set<Visit> visitsC;
+	/*@OneToMany(mappedBy = "customer")
+	private Set<Visit> visitsC;*/
  
 	/*@OneToMany(cascade = CascadeType.ALL)
 	private Set<Contract> Contracts;

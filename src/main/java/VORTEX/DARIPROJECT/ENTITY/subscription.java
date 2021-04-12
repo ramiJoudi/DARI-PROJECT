@@ -3,6 +3,7 @@ package VORTEX.DARIPROJECT.ENTITY;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
+@Table( name= "t_subscription")
 public class subscription implements Serializable{
 	
 	@Id
@@ -20,10 +22,39 @@ public class subscription implements Serializable{
 	private int idSub; 
 	
 	private String offer;
+	@Column
+	private boolean sub;
 	
-	@OneToOne(mappedBy = "sub")
-	private customer customer;
+	@Column
+	private Long price ; 
+	
+	
+	public Long getPrice() {
+		return price;
+	}
 
+	public subscription(String offer, boolean sub, Long price) {
+		super();
+		this.offer = offer;
+		this.sub = sub;
+		this.price = price;
+	}
+
+	public subscription(int idSub, String offer, boolean sub, Long price) {
+		super();
+		this.idSub = idSub;
+		this.offer = offer;
+		this.sub = sub;
+		this.price = price;
+	}
+
+	public void setPrice(Long price) {
+		this.price = price;
+	}
+
+	/*@OneToOne(mappedBy = "sub")
+	private customer customer;
+*/
 	public subscription(int idSub, String offer) {
 		super();
 		this.idSub = idSub;
@@ -48,6 +79,13 @@ public class subscription implements Serializable{
 
 	public void setOffer(String offer) {
 		this.offer = offer;
+	}
+	public boolean isSub() {
+		return sub;
+	}
+
+	public void setSub(boolean sub) {
+		this.sub = sub;
 	}
 
 	
