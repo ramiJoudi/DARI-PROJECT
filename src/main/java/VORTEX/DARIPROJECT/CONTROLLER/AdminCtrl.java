@@ -35,7 +35,8 @@ import net.bytebuddy.utility.RandomString;
 @RestController
 public class AdminCtrl {
   
- 
+
+
 @Autowired
 private SERVICE_Admin SA;
  

@@ -55,7 +55,19 @@ public void Update_Owner( int id,owner ow) throws ResourceNotFoundException{
 	
 	}
 
+
+public void Update_OwnerPWD( int id,String pwd) throws ResourceNotFoundException{
 	
+	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	String hashedPassword = passwordEncoder.encode(pwd);
+	owner ow=ROw.findById(id).orElseThrow(
+			 ()->new ResourceNotFoundException(" this user doesn't exist"));
+ 
+	ow.setPwd(hashedPassword);
+	ROw.save(ow);
+	
+	}	
+
 
 
 

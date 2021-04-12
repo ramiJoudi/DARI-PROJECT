@@ -61,9 +61,6 @@ import javax.persistence.Table;
 	/*@OneToMany(cascade = CascadeType.ALL)
 	private Set<Contract> Contracts;
 	*/
-	@ManyToMany(cascade = CascadeType.ALL)
-	private Set<Chat> ChatsC;
-	
 	@OneToOne
 	private subscription sub;
 	

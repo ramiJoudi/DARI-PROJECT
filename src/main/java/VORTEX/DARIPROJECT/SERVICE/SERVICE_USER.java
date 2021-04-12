@@ -18,7 +18,7 @@ public class SERVICE_USER implements UserDetailsService {
 @Autowired
 private REPOSITORY_User RU;
  
- 
+
 @Override
 public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -29,9 +29,18 @@ public UserDetails loadUserByUsername(String username) throws UsernameNotFoundEx
     return new CustomUserDetails(user);
 }
 
+ 
 public User findById(int id) {return RU.findUserById(id);}
 
-
  
+public User findByUsername(String username) {
+	return RU.findByUsername(username);
+}
+ 
+ 
+public User findByresetPwdCode(String resetPwdCode) {
+	return RU.findByresetPwdCode(resetPwdCode);
+}
+
 
 }
