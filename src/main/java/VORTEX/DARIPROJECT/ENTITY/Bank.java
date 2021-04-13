@@ -21,20 +21,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="BankTab")
+@Table(name="Bank")
 public class Bank implements Serializable{
 	private static final long serialVersionUID = -654550526332587022L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int bankId;
-	private String bankName;
+	private String bankname;
 	private float interestRate;
 	
 	public String getBankName() {
-		return bankName;
+		return bankname;
 	}
 	public void setBankName(String bankName) {
-		this.bankName = bankName;
+		this.bankname = bankName.toUpperCase();
 	}
 	public int getBankId() {
 		return bankId;
@@ -51,7 +51,7 @@ public class Bank implements Serializable{
 	
 	public Bank(int bankId, String bankName, float interestRate) {
 		super();
-		this.bankName = bankName;		
+		this.bankname = bankName.toUpperCase();		
 		this.bankId = bankId;
 		this.interestRate = interestRate;
 	}

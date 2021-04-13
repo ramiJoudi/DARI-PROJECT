@@ -34,5 +34,22 @@ public class BankService {
 		existingBank.setInterestRate(Bank.getInterestRate());
 		return repository.save(existingBank);
 	}
-
+	public boolean findBankNameT(String bankName) //test whether the Bank list is empty
+	{
+		return repository.findByBanknameL(bankName).isEmpty();
+		
+		
+	}
+	public List<Bank> findBankNameList(String bankName) // searches by name and returns a list of banks
+	{
+		return repository.findByBanknameL(bankName);
+	}
+	public float findInterestRateByName(String BankName)
+	{
+		return repository.findByBanknameIr(BankName);
+	}
+	public Bank findBank(String bankName) {
+	return repository.findByBankname(bankName.toUpperCase());
+	}
+	
 }
