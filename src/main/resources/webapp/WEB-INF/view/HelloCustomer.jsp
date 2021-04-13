@@ -9,5 +9,7 @@
 <h1 class="display-2" >Welcome Customer!</h1>
 <a class="btn btn-outline-danger" href="logout" role="button">
 Log out</a> 
+<a class="btn btn-outline-danger" href="logout" role="button">
+Log out</a> 
 </body>
 </html>
