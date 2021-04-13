@@ -18,13 +18,13 @@ import VORTEX.DARIPROJECT.REPOSITORY.BankRepository;
 import VORTEX.DARIPROJECT.SERVICE.BankService;
 
 @RestController
-@RequestMapping("bank")
+@RequestMapping("customerHome/bank")
 public class BankController {
 	
 	@Autowired
 	private BankService service; 
 	
-	@PostMapping("/addbank")
+	@GetMapping("/addbank")
 	public Bank addBank(@RequestBody Bank Bank) {
 		return service.saveBank(Bank);
 	}
@@ -37,12 +37,16 @@ public class BankController {
 	public List<Bank> findBanks() {
 		return service.getBanks();
 	}
-	@PutMapping("/update")
+	@GetMapping("/findbank/{bankName}")
+	//public List<Bank> findBanksbyName(@RequestBody String bankName) {
+	public List<Bank> findBanksbyName(@PathVariable String bankName) {
+		return service.findBankNameList(bankName);}
+	@GetMapping("/update")
 	public Bank updateBank(@RequestBody Bank Bank) {
 		return service.updateBank(Bank);
 	}
 
-	@DeleteMapping("/delete/{id}")
+	@GetMapping("/delete/{id}")
 	public String deleteBank(@PathVariable int id) {
 		return service.deleteBank(id);
 	}

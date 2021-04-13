@@ -28,7 +28,7 @@ public class Loan implements Serializable {
 	private float interestRate;
 	private float monthly_payment;
 	private int loan_duration;
-//	private bank bank;
+	private String bankname;
 	public int getIdCredit() {
 		return idCredit;
 	}
@@ -65,6 +65,18 @@ public class Loan implements Serializable {
 	public void setLoan_duration(int loan_duration) {
 		this.loan_duration = loan_duration;
 	}
+	public String getBankname() {
+		return bankname;
+	}
+	public void setBankname(String bankname) {
+		this.bankname = bankname.toUpperCase();
+	}
+	public void setLoanEroor(String Error)
+	{
+		this.setBankname(Error);
+		this.setPrice(0);
+		this.setLoan_duration(0);
+	}
 	/*public bank getBank() {
 		return bank;
 	}
@@ -75,9 +87,8 @@ public class Loan implements Serializable {
 	public Loan(float price, float interestRate, float monthly_payment, int loan_duration) {
 		super();
 		this.price = price;
-		this.interestRate = interestRate;
-		this.monthly_payment = monthly_payment;
 		this.loan_duration = loan_duration;
+		this.bankname = bankname.toUpperCase();
 	}
 
 	public Loan() {

@@ -43,5 +43,4 @@ public class SimulationController {
 	public String deleteLoan(@PathVariable int id) {
 		return service.deleteLoan(id);
 	}
-	
 }
